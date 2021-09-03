@@ -15,13 +15,24 @@ export default function TextForm(props) {
         setText(text.toUpperCase());
     }
 
+    function handleClearClick() {
+        setText('');
+    }
+
     return (
+        <>
         <div>
             <div className="mb-3">
                 <label htmlFor="exampleFormControlTextarea1" className="form-label">{props.heading}</label>
                 <textarea className="form-control" id="exampleFormControlTextarea1" rows="8" value={text} onChange={handleOnChange}></textarea>
             </div>
             <button className="btn btn-primary" onClick={handleUpClick}>Convert to uppercase</button>
+            <button className="btn btn-primary" onClick={handleClearClick}>Clear Text</button>
+
         </div>
+        <div>
+            <p>{text.split(" ").length} words and {text.length} character</p>
+        </div>
+        </>
     )
 }
